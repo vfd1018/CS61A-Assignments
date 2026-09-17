@@ -23,7 +23,7 @@ def a_plus_abs_b_syntax_check():
 
     >>> # You aren't expected to understand the code of this test.
     >>> import inspect, re
-    >>> re.findall(r'^\s*(return .*)', inspect.getsource(a_plus_abs_b), re.M)
+    >>> re.findall(r'^\\s*(return .*)', inspect.getsource(a_plus_abs_b), re.M)
     ['return f(a, b)']
     """
     # You don't need to edit this function. It's just here to check your work.
@@ -42,7 +42,7 @@ def two_of_three(i, j, k):
     >>> two_of_three(5, 5, 5)
     50
     """
-    return _____
+    return i*i + j*j + k*k - max(i, j, k) * max(i, j, k)
 
 def two_of_three_syntax_check():
     """Check that your two_of_three code consists of nothing but a return statement.
@@ -66,7 +66,11 @@ def largest_factor(n):
     1
     """
     "*** YOUR CODE HERE ***"
-
+    for i in range(1, n):
+        if n % i == 0:
+            fac = i
+    return fac 
+        
 
 def hailstone(n):
     """Print the hailstone sequence starting at n and return its
@@ -88,4 +92,13 @@ def hailstone(n):
     1
     """
     "*** YOUR CODE HERE ***"
+    print(n) 
+    
+    if n == 1:
+        return 1
+    elif n % 2 == 0:
+        return 1 + hailstone(n//2)
+    else:
+        return 1 + hailstone(3* n + 1)
+    
 
